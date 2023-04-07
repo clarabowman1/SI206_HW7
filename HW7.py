@@ -1,8 +1,8 @@
 
-# Your name:
-# Your student id:
-# Your email:
-# List who you have worked with on this project:
+# Your name: Clara Bowman
+# Your student id: 36800347
+# Your email: clar@umich.edu
+# List who you have worked with on this project: N/A
 
 import unittest
 import sqlite3
@@ -122,8 +122,6 @@ def birthyear_nationality_search(age, country, cur, conn):
     # HINT: You'll have to use JOIN for this task.
 
 def position_birth_search(position, age, cur, conn):
-        cur.execute('SELECT id FROM Positions WHERE position = ?', (position, ))
-        position_id = int(cur.fetchone()[0])
         cur.execute('SELECT Players.name, Positions.position, Players.birthyear FROM Players JOIN Positions ON Players.position_id = Positions.id WHERE Players.birthyear > ? AND Positions.position = ?', ((2023 - age), position))
         players_list = (cur.fetchall())
         return players_list
